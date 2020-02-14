@@ -1,0 +1,46 @@
+function validateForm(form){
+	if (activity == 5){
+		if (form.getValue("txtDataIni") == "") {
+			throw "Prencha a Data de Início.";
+		}
+		if (form.getValue("txtDataFim") == "") {
+			throw "Prencha a Data de Fim.";
+		}
+		if (form.getValue("txtHoraIni") == "") {
+			throw "Prencha a Hora de Início.";
+		}
+		if (form.getValue("txtHoraFim") == "") {
+			throw "Prencha a Hora do Término.";
+		}	
+		if (form.getValue("txtLoc") == "") {
+			throw "Prencha o Local.";
+		}
+		if (form.getValue("txtPred") == "") {
+			throw "Prencha o Prédio.";
+		}
+		if (form.getValue("txtPartic") == "") {
+			throw "Prencha os Participantes.";
+		}
+		if (form.getValue("txtPauta") == "") {
+			throw "Prencha a Pauta.";
+		}else {
+			if (form.getValue("txtSumula") == ""){
+				throw "Prencha a Súmula.";
+			}
+		}
+		var espCont = form.getValue("txtPartic");
+		if (form.getValue("txtPartic") == "outro" && espCont.trim() == "") {
+			throw "Adicione os outros Participantes.";
+		}
+	}	
+	
+	if (activity == 5){
+		if (form.getValue("rdRespPartic") != "on") {
+			throw "De acordo? Sua resposta é necessária.";
+		}
+	}
+	if ((activity == 5 && form.getValue("rdRespPartic") == "nao" && form.getValue("txtJust") == "") || 
+		(activity == 5 && form.getValue("rdRespPartic") == "ausente" && form.getValue("txtJust") == "")) {
+			throw "Prencha a justificativa.";}
+}
+	
