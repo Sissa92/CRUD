@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form</title>
+        <link href="/resources/style-guide/css/fluig-style-guide.min.css" rel="stylesheet" type="text/css">
+        <script src="/resources/js/jquery/jquery.js"></script>
+        <script src="/resources/js/jquery/jquery-ui.min.js"></script>
+        <script src="/resources/js/mustache/mustache-min.js"></script>
+        <script src="/resources/style-guide/js/fluig-style-guide.min.js"></script>
+        <!-- CUSTOM -->
+        <link href="/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+        <link href="/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+        <script src="/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+        <script src="/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+		<script src="autosize.js"></script>
+		<script src="custom.js"></script>
+		<style>
+			.ui-autocomplete {
+				z-index: 10;
+				padding: 5px;
+				max-height: 150px;
+				overflow-y: scroll;
+				background: #fcf8e3;
+				width: calc(100% - 20px) !important;
+			}
+			@media (min-width: 768px) {
+				.ui-autocomplete.autoCont {
+					width: calc(50% - 18px) !important;
+				}
+			}
+			.ui-menu-item {
+				padding: 5px;
+				list-style-type: none !important;
+			}
+			.ui-state-focus {
+				border-radius: 5px !important;
+				background-color: #DDD !important;
+			}
+			.ui-helper-hidden-accessible { display: none; }
+			.fluig-style-guide .radio { float: left; margin: 7px 5px !important; }
+			.fluig-style-guide .radio-options:after { content: ""; clear: both; display: block; }
+		</style>
+	</head>
+	<body class="fluig-style-guide">
+		<form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+			<h1 class="title-form-application">Formulário de Atas de Reunião</h1>
+			<input type="hidden" name="atividade" id="atividade">
+			<div class="form-field" data-type="textbox" data-field-name="txtNomeAta">
+				<div class="form-input">
+					<div class="form-group">
+						<label>Ata de Reunião</label>
+						<input type="text" class="form-control" name="txtNomeAta" id="txtNomeAta">
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-right:0">
+	    		<div class="col-sm-3" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtDataIni">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="txtForn"><b>*</b> Data de Inicio</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="txtDataIni" id="txtDataIni">
+									<span class="input-group-addon">
+										<span class="fluigicon fluigicon-calendar icon-sm"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtDataFim">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="txtDataFim"><b>*</b> Data de Término</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="txtDataFim" id="txtDataFim">
+									<span class="input-group-addon">
+										<span class="fluigicon fluigicon-calendar icon-sm"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtHoraIni">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="txtHoraIni"><b>*</b> Hora do Inicio</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="txtHoraIni" id="txtHoraIni">
+									<span class="input-group-addon">
+										<span class="fluigicon fluigicon-time icon-sm"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtHoraFim">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="txtHoraFim"><b>*</b> Hora do Término</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="txtHoraFim" id="txtHoraFim">
+									<span class="input-group-addon">
+										<span class="fluigicon fluigicon-time icon-sm"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-right:0">
+	    		<div class="col-sm-6" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtLoc">
+						<div class="form-input">
+							<div class="form-group">
+								<label><b>*</b> Local</label>
+								<input type="text" class="form-control" name="txtLoc" id="txtLoc">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtPred">
+						<div class="form-input">
+							<div class="form-group">
+								<label><b>*</b> Prédio</label>
+								<input type="text" class="form-control" name="txtPred" id="txtPred">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-right:0">
+	    		<div class="col-sm-10" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtPartic">
+						<div class="form-input">
+							<div class="form-group">
+								<label><b>*</b> Participantes</label>
+								<input type="text" class="form-control" name="txtPartic" id="txtPartic">
+							</div>
+						</div>
+					</div>
+				</div>
+	    		<div class="col-sm-2" style="padding-right:0">
+					<div class="form-field" data-type="textbox" data-field-name="txtPartic">
+						<div class="form-input">
+							<div class="form-group">
+								<div style="height:25px">&nbsp;</div>
+								<button class="btn btn-block btn-info" id="btnAdd" onclick="criaModal($('#txtPartic').val())">
+			    					<span class="fluigicon fluigicon-plus icon-xs"></span>
+									<span id="addPartic">Participantes</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="txtComPart">
+				<div class="form-input">
+					<div class="form-group">
+						<label>Participantes Complementares</label>
+						<textarea class="form-control" name="txtComPart" id="txtComPart"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="txtPauta">
+				<div class="form-input">
+					<div class="form-group">
+						<label><b>*</b> Pauta</label>
+						<textarea class="form-control" name="txtPauta" id="txtPauta"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="txtSumula">
+				<div class="form-input">
+					<div class="form-group">
+						<label><b>*</b> Sumula</label>
+						<textarea class="form-control" name="txtSumula" id="txtSumula"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="form-field" data-type="radio" data-show-properties="" data-field-name="rdRespPartic">
+				<div class="form-input">
+					<div class="form-group">
+						<label><b>*</b> De acordo com a Ata de Reunião?</label>
+						<div class="radio-options">
+							<div class="radio">
+								<label><input type="radio" name="rdRespPartic" id="RespSim" value="sim" checked>Sim</label>
+							</div>
+							<div class="radio">
+								<label><input type="radio" name="rdRespPartic" id="RespNao" value="nao">Não</label>
+							</div>
+							<div class="radio">
+							<label><input type="radio" name="rdRespPartic" id="RespAus" value="ausente">Ausente</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="txtJust">
+				<div class="form-input">
+					<div class="form-group">
+						<label><b>*</b> Justificativa</label>
+						<textarea class="form-control" name="txtJust" id="txtJust"></textarea>
+					</div>
+				</div>
+			</div>
+
+		</form>
+		<script type="text/javascript">
+			var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118; 
+			  
+			$(document).keydown(function (e) {
+				if (e.keyCode == ctrl) keyDown = true;
+			}).keyup(function (e) {
+				if (e.keyCode == ctrl) keyDown = false;
+			});
+			
+			$('[data-only-numbers]').on('keypress', function (e) {
+			    if (!e) {
+				    var e = window.event;
+				}
+				
+			    if (e.keyCode > 0 && e.which == 0) {
+			    	 return true;
+				}
+				
+			    if (e.keyCode) {
+			        code = e.keyCode;
+				} else if (e.which) {
+			    	code = e.which;
+				}
+
+				if(code == 46) {
+					return true;
+				}
+				
+			    var character = String.fromCharCode(code);
+			    if (character == '\b' || character == ' ' || character == '\t') {
+			    	 return true;
+				}
+			    if (keyDown && (code == vKey || code == Vkey)) {
+			    	return (character);
+				} else  {
+					return (/[0-9]$/.test(character));
+				}
+			}).on('focusout', function (e) {
+			    var $this = $(this);
+				if($this.val() == "") {
+					return true;
+				}
+			    $this.val($this.val().replace(/[^0-9\.]/g, ''));
+			}).on('paste', function (e) {
+			    var $this = $(this);
+			    setTimeout(function () {
+			        $this.val($this.val().replace(/[^0-9\.]/g, ''));
+			    }, 5);
+			 });				
+
+			
+
+			$('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function(){
+				validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+			});
+
+			$('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function(){
+				validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+			});
+
+			function validationFieldsForm(field, type){
+				if(type === "checkbox" || type === "radio"){
+					if(!field.is(':checked')){
+						field.parents('.form-field').addClass('required');
+					}else{
+						field.parents('.form-field').removeClass('required');
+					}
+				}else{
+					if(!field.val().trim()){
+						field.parents('.form-field').addClass('required');
+					}else{
+						field.parents('.form-field').removeClass('required');
+					}
+				}
+			}
+
+			var $zoomPreview = $(".zoom-preview");
+			if ($zoomPreview.length) {
+                $zoomPreview.parent().removeClass("input-group");
+                $zoomPreview.remove();
+            }
+
+			var ratings = $(".rating");
+			if (ratings.length > 0) ratingStars(ratings);
+			function ratingStars(stars) {
+				$.each(stars, function(i, obj) {
+                    var field = $(this).closest(".form-group").find(".rating-value");
+					var tgt = $(obj);
+					tgt.html("");
+					var rating = FLUIGC.stars(tgt, { value: field.val() });
+                    rating.on("click", function(o) {
+                        field.val($(this).index() + 1);
+                    });
+				});
+			}
+
+			$.each($("[data-date]"), function(i, o) {
+                var id = $(o).attr("id");
+				FLUIGC.calendar("#" + id);
+			});
+
+			$(document).ready(function() {
+				$.each($("[data-date]"), function(i, o) {
+                    var id = $(o).attr("id");
+                    if($("#" + id).attr("readonly")) {
+                    	$("#" + id).data('DateTimePicker').disable();
+                    }
+				});
+			});
+		</script>
+	</body>
+</html>
